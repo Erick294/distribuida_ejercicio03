@@ -11,8 +11,14 @@ import java.math.BigDecimal;
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "auth_id")
     private Integer id;
 
+    @Column(name = "auth_first_name")
     private String firstName;
+
+    @Column(name = "auth_last_name")
     private String lastName;
+
+
 }
