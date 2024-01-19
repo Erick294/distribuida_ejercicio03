@@ -3,7 +3,7 @@ package com.distribuida.app.authors.db;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.math.BigDecimal;
+import lombok.var;
 
 @Entity
 @Table(name="authors")
@@ -20,5 +20,12 @@ public class Author {
     @Column(name = "auth_last_name")
     private String lastName;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(
+	        name = "authors_books",
+	        joinColumns = @JoinColumn(name = "auth_id"),
+	        inverseJoinColumns = @JoinColumn(name = "book_id")
+	    )
+    private var books;
 
 }
